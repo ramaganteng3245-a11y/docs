@@ -1,0 +1,38 @@
+font-weight: bold;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Toko Diamond Online</h1>
+
+  <div class="product-list" id="productList">
+    <!-- Produk akan muncul di sini -->
+  </div>
+
+  <div id="cart">Total Diamond Dibeli: 0</div>
+
+  <script>
+    const products = [
+      { id: 1, name: 'Diamond 100', price: 10000, img: 'https://via.placeholder.com/200?text=Diamond+100' },
+      { id: 2, name: 'Diamond 250', price: 23000, img: 'https://via.placeholder.com/200?text=Diamond+250' },
+      { id: 3, name: 'Diamond 500', price: 45000, img: 'https://via.placeholder.com/200?text=Diamond+500' },
+      { id: 4, name: 'Diamond 1000', price: 85000, img: 'https://via.placeholder.com/200?text=Diamond+1000' },
+    ];
+
+    let totalBought = 0;
+
+    function addProductToCart(price) {
+      totalBought += price;
+      document.getElementById('cart').textContent = `Total Diamond Dibeli: Rp ${totalBought.toLocaleString()}`;
+      alert('Terima kasih telah membeli diamond!');
+    }
+
+    function showProducts() {
+      const productList = document.getElementById('productList');
+      products.forEach(product => {
+        const productEl = document.createElement('div');
+        productEl.className = 'product';
+        productEl.innerHTML = `
